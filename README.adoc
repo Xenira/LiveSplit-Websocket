@@ -1,0 +1,96 @@
+LiveSplit Websocket
+===================
+Lasse Sprengel <lasse.sprengel@pm.me>
+v0.1
+
+WARNING: This is still in active development and APIs will change.
+
+LiveSplit Websocket is a LiveSplit component that allows for other programs and other computers to control LiveSplit.
+
+This project is based on the https://github.com/LiveSplit/LiveSplit.Server[LiveSplit Server] and most methods are still accessible. Major differences is the use of Websockets, which makes integrating Web Applications easier, the addition of events and the removal of executing scripts (security?).
+
+== Install
+
+* Download the Server component from [https://github.com/Xenira/LiveSplit-Websocket/releases](https://github.com/Xenira/LiveSplit-Websocket/releases)
+* Locate your LiveSplit instillation directory
+* Place the contents of the downloaded zip into the "LiveSplit\Components" directory
+
+== Setup
+
+Add the component to the Layout (Control -> LiveSplit Websocket). In Layout Settings, you can change the Server Port and view your local IP Address.
+
+=== Control
+
+You **MUST** start the Server before programs can talk to it (Right click on LiveSplit -> Control -> Start Server (WS)). You **MUST** manually start it each time you launch LiveSplit.
+
+=== Layout Settings
+
+Port:: is the door (1 of thousands) on your computer that this program sends data through. Default is **16835**. This should be fine for most people, but depending on network configurations, some ports may be blocked. See also https://en.wikipedia.org/wiki/Port_%28computer_networking%29
+
+Local IP:: is the address of your computer on your network. It is needed for other computers or phones on your network to talk to yours. Programs on your computer should be able to use *"localhost"*.
+
+Note that this is **NOT** your public IP with most network configurations. In most cases, it means nothing if it is seen on stream. **DO NOT** search *"what is my IP"* on stream as that will show you your public IP.
+
+The local IP is the "IPv4 Address" of the first connected network adapter. This is normally what clients need, but software (such as virtual machines or VPNs) may add network adapters which can appear first. If in doubt, open Command Prompt and run `ipconfig`. The device you are looking for is probably either "Ethernet adapter Ethernet" or "Wireless LAN adapter Wi-Fi".
+
+=== Using Across the Internet
+To make a public server, consider learning to set up a web server and use what you learn. It is probably wiser, safer, and easier to use an IRC bot or something else though. Look at "Known Uses" or ask around.
+
+== Known Uses
+
+TBA
+
+Made something cool? Consider getting it added to this list.
+
+== Commands
+
+CAUTION: This section needs to be updated with current command structure! Have a look into the code, should a command misbehave. You have been warned.
+
+Commands are case sensitive. You can provide parameters by using a space after the command and sending the parameters afterwards (`<command><space><parameters>`).
+
+A command can respond with a message. The message ends with a carriage return and a line feed, just like a command.
+
+Here's the list of commands:
+
+* starttimer
+* startorsplit
+* split
+* unsplit
+* skipsplit
+* pause
+* resume
+* reset
+* initgametime
+* setgametime TIME
+* setloadingtimes TIME
+* pausegametime
+* unpausegametime
+* setcomparison COMPARISON
+
+The following commands respond with a time:
+
+* getdelta
+* getdelta COMPARISON
+* getlastsplittime
+* getcomparisonsplittime
+* getcurrenttime
+* getfinaltime
+* getfinaltime COMPARISON
+* getpredictedtime COMPARISON
+* getbestpossibletime
+
+Other commands:
+
+* getsplits
+* getsplitindex
+* getcurrentsplitname
+* getprevioussplitname
+* getcurrenttimerphase
+
+Commands are defined at `ProcessMessage` in "ServerComponent.cs".
+
+When using Game Time, it's important that you call "initgametime" once. Once "initgametime" is used, an additional comparison will appear and you can switch to it via the context menu (Compare Against > Game Time). This special comparison will show everything based on the Game Time (every component now shows Game Time based information).
+
+## Example Clients
+
+TBD
