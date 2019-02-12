@@ -485,7 +485,10 @@ namespace LiveSplit.UI.Components
         public void Dispose()
         {
             State.OnStart -= State_OnStart;
-            Server.Stop();
+            if (Server != null)
+            {
+                Server.Stop();
+            }
         }
 
         public int GetSettingsHashCode()
