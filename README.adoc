@@ -7,7 +7,7 @@ WARNING: This is still in active development and APIs will change.
 
 LiveSplit Websocket is a LiveSplit component that allows for other programs and other computers to control LiveSplit.
 
-This project is based on the https://github.com/LiveSplit/LiveSplit.Server[LiveSplit Server] and most methods are still accessible. Major differences is the use of Websockets, which makes integrating Web Applications easier, the addition of events and the removal of executing scripts (security?).
+This project is based on the https://github.com/LiveSplit/LiveSplit.Server[LiveSplit Server] and most methods are still accessible. The major difference is the use of Websockets, which makes integrating Web Applications easier, the addition of events and the removal of executing scripts (security?).
 
 == Install
 
@@ -33,14 +33,11 @@ Note that this is **NOT** your public IP with most network configurations. In mo
 
 The local IP is the "IPv4 Address" of the first connected network adapter. This is normally what clients need, but software (such as virtual machines or VPNs) may add network adapters which can appear first. If in doubt, open Command Prompt and run `ipconfig`. The device you are looking for is probably either "Ethernet adapter Ethernet" or "Wireless LAN adapter Wi-Fi".
 
+=== Usage
+The websocket is started at `ws://(local IP):16835/localhost`. Websocket Secure (wss) schema is not currently supported.
+
 === Using Across the Internet
 To make a public server, consider learning to set up a web server and use what you learn. It is probably wiser, safer, and easier to use an IRC bot or something else though. Look at "Known Uses" or ask around.
-
-== Known Uses
-
-TBA
-
-Made something cool? Consider getting it added to this list.
 
 == Commands
 
@@ -48,7 +45,7 @@ CAUTION: This section needs to be updated with current command structure! Have a
 
 Commands are case sensitive. You can provide parameters by using a space after the command and sending the parameters afterwards (`<command><space><parameters>`).
 
-A command can respond with a message. The message ends with a carriage return and a line feed, just like a command.
+A command can respond with a message.
 
 Here's the list of commands:
 
@@ -91,6 +88,12 @@ Commands are defined at `ProcessMessage` in "ServerComponent.cs".
 
 When using Game Time, it's important that you call "initgametime" once. Once "initgametime" is used, an additional comparison will appear and you can switch to it via the context menu (Compare Against > Game Time). This special comparison will show everything based on the Game Time (every component now shows Game Time based information).
 
-## Example Clients
+== Known Uses
+
+TBA
+
+Made something cool? Consider getting it added to this list.
+
+== Example Clients
 
 TBD
