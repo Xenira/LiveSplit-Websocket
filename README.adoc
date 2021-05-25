@@ -34,7 +34,7 @@ Note that this is **NOT** your public IP with most network configurations. In mo
 The local IP is the "IPv4 Address" of the first connected network adapter. This is normally what clients need, but software (such as virtual machines or VPNs) may add network adapters which can appear first. If in doubt, open Command Prompt and run `ipconfig`. The device you are looking for is probably either "Ethernet adapter Ethernet" or "Wireless LAN adapter Wi-Fi".
 
 === Usage
-The websocket is started at `ws://(local IP):16835/localhost`. Websocket Secure (wss) schema is not currently supported.
+The websocket is started at `ws://(local IP):16835/livesplit`. Websocket Secure (wss) schema is not currently supported.
 
 === Using Across the Internet
 To make a public server, consider learning to set up a web server and use what you learn. It is probably wiser, safer, and easier to use an IRC bot or something else though. Look at "Known Uses" or ask around.
