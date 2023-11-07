@@ -90,7 +90,7 @@ When using Game Time, it's important that you call "initgametime" once. Once "in
 
 == Known Uses
 
-TBA
+link:https://github.com/ffyte/Livesplit-websocket-hotkeys[Livesplit-websocket-hotkeys]:: Command line client that uses websocket for basic functionality, with hotkey support.
 
 Made something cool? Consider getting it added to this list.
 
